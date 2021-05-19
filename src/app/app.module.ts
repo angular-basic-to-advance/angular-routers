@@ -15,7 +15,10 @@ import { RouterModule, Routes } from "@angular/router";
 const appRoute: Routes = [
   { path: "", component: HomeComponent },
   { path: "users", component: UsersComponent },
+  // here the : informs angular that the path is dynamically updated
+  { path: "users/:id/:name", component: UserComponent },
   { path: "servers", component: ServersComponent },
+  { path: "servers/:id/edit", component: EditServerComponent },
 ];
 
 @NgModule({
