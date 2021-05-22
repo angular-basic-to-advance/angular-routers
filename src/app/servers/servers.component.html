@@ -2,7 +2,7 @@
   <div class="col-xs-12 col-sm-4">
     <div class="list-group">
       <a 
-      [routerLink]="['/servers', 5 ,'edit']" 
+      [routerLink]="['/servers', server.id]" 
       [queryParams]="{allowEdit:1}"
       fragment="loading"
       class="list-group-item" 
@@ -23,8 +23,13 @@
     <!-- this will give error as server1 is not in the Routes  -->
     <!-- <a routerLink="/servers1">Router Link</a>  -->
 
-    <app-edit-server></app-edit-server>
+    <!-- if we add a child router then except adding router outlet in parent i.e AppComponent.html we also
+    need to add another outlet inside the componnet whose child component we need to access -->
+    <router-outlet></router-outlet>
+    <!-- <app-edit-server></app-edit-server> -->
     <hr>
-    <app-server></app-server>
+    <!-- because the value in geteServer() in serverComponet has now been dynamic and its value is not defined yet
+    so we are getting the error that valu is undefined so we need to commet out this-->
+    <!-- <app-server></app-server> -->
   </div>
 </div>

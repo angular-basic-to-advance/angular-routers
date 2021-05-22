@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ServersService } from './servers.service';
 
 @Component({
@@ -10,10 +10,12 @@ import { ServersService } from './servers.service';
 export class ServersComponent implements OnInit {
   public servers: {id: number, name: string, status: string}[] = [];
 
-  constructor(private serversService: ServersService, private router : Router) { }
+  constructor(private serversService: ServersService) { }
 
   ngOnInit() {
+    // this.servers = this.serversService.getServers(1);
     this.servers = this.serversService.getServers();
+    
   }
 
   
