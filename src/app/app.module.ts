@@ -18,11 +18,14 @@ const appRoute: Routes = [
   { path: "users", component: UsersComponent, children:[
     { path: ":id/:name", component: UserComponent },
   ] },
-  // here the : informs angular that the path is dynamically updated
+  // here the :(e.g :id) informs angular that the path is dynamically updated
   { path: "servers", component: ServersComponent,children :[
     { path: ":id", component: ServerComponent },
     { path: ":id/edit", component: EditServerComponent },
   ]},
+  // This is an extra component we have made to handle any other path if user enters
+  // then it wiil be get redirected to the component so that error due to unhandled link
+  // can be handled.
   { path:'page-not-found', component : PageNotFoundComponent},
   { path: '**', redirectTo:'page-not-found'}
 ];
