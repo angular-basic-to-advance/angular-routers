@@ -1,6 +1,10 @@
 <div class="row">
   <div class="col-xs-12 col-sm-4">
     <div class="list-group">
+
+      <!-- below the query params was 
+      [queryParams]="{allowEdit:1}"
+    now updated to [queryParams]="{allowEdit:server.id === 3 ? '1' : '0' }" -->
       <a 
       [routerLink]="['/servers', server.id]" 
       [queryParams]="{allowEdit:server.id === 3 ? '1' : '0' }"

@@ -10,7 +10,7 @@ import { ServersService } from '../servers.service';
 })
 export class ServerComponent implements OnInit {
   server: {id: number, name: string, status: string};
-
+// ActivatedRoute : Holds the path of the current component
   constructor(private serversService: ServersService, private router : ActivatedRoute,
     private route : Router) { }
 
@@ -29,7 +29,15 @@ export class ServerComponent implements OnInit {
   }
 
   onEdit(){
-    this.route.navigate(['edit'],{relativeTo:this.router})
+    this.route.navigate(['edit'],{relativeTo:this.router,queryParamsHandling:'preserve'})
+    // this.route.navigate(['/servers', this.server.id, 'edit'], { queryParamsHandling: 'preserve' })
+
+    //relativeTo : if we are already in a child component(server component) and 
+    // if we want to navigate to another child component then we dont need to specify the full path('severs/:id/edit')
+    // but we can provide the route of the component we want to navigate (if we want to go edit server and we are already in the server component
+    // then we just need to navigate to /edit and add the remaining path using the angular provided name 'relativeTo'
+    // and assign this to the activated route(this.route))
+
   }
 
 }
